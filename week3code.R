@@ -8,4 +8,6 @@ nums <- c(6, 10, 14, 15, 21,
 
 
 factors <- factorize(nums)
-factors[21]
+
+#found code on stack overflow
+not.same <- nums[which(sapply(factors,`[`,c(4)) != 1)] #finds the wrong number
