@@ -1,3 +1,5 @@
+library("sfsmisc")
+
 nums <- c(6, 10, 14, 15, 21,
           22, 26, 33, 34, 35,
           38, 39, 46, 51, 55,
@@ -26,9 +28,12 @@ possible.factors <- factorize(possible.nums)
 
 possible.subs <- c()
 
-for(i in 1:length(possible.factors)){
-  if(possible.factors[[i]][3] != 1 | possible.factors[[i]][4] != 1){
+#for(i in 1:length(possible.factors)){
+i = 89
+  if(possible.factors[[i]][2] != 1 | 
+     possible.factors[[i]][3] != 1 | 
+     possible.factors[[i]][4] != 1){
     possible.subs <- c(possible.subs, possible.factors[i])
   }
   
-}
+#}
