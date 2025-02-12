@@ -1,9 +1,9 @@
-nums <- c(6, 10, 14, 15, 21,
-          22, 26, 33, 34, 35,
-          38, 39, 46, 51, 55,
-          57, 58, 62, 65, 69,
-          75, 77, 82, 85, 86,
-          87, 91, 93, 94, 95)
+blakes.nums <- c(6, 10, 14, 15, 21,
+                 22, 26, 33, 34, 35,
+                 38, 39, 46, 51, 55,
+                 57, 58, 62, 65, 69,
+                 75, 77, 82, 85, 86,
+                 87, 91, 93, 94, 95)
 
 possible.nums <- 1:100
 first.hundred.primes <- c()
@@ -24,35 +24,18 @@ for(i in 1:length(possible.nums)){
   }
 }
 
-
-
-#Old code
-factors <- factorize(nums)
-
-#found code on stack overflow
-
-for(i in 1:length(factors)){
-  if(factors[[i]][3] != 1 | factors[[i]][4] != 1){
-    not.same.index <- i
-    not.same <- factors[i]
-  }
-    
+#find all the prime products up to 100 to compare with Blake's nums
+under.hundred.prime.prods <- c()
+for(i in 1:first.hundred.primes){
+  for(j in 1:first.hundred.primes){
+    product = first.hundred.primes[i] * first.hundred.primes[j]
+    if(i != j & product < 100){
+      under.hundred.prime.prods <- setdiff(c(prime.products, product), 
+                                           first.hundred.primes)
+      }
+    }
 }
 
+setdiff(blakes.nums, under.hundred.prime.prods)
 
-
-#found code on stack overflow
-
-possible.subs <- c()
-
-#for(i in 1:length(possible.factors)){
-i = 87
-  if(possible.factors[[i]][2] != 1 | 
-     possible.factors[[i]][3] != 1 | 
-     possible.factors[[i]][4] != 1 |
-     possible.factors[[i]][3] != "NA" |
-     possible.factors[[i]][4] != "NA"){
-    possible.subs <- c(possible.subs, possible.factors[i])
-  }
-  
-#}
+setdiff(under.hundred.prime.prods, blakes.nums)
