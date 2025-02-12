@@ -6,6 +6,7 @@ blakes.nums <- c(6, 10, 14, 15, 21,
                  87, 91, 93, 94, 95)
 
 possible.nums <- 1:100
+
 first.hundred.primes <- c()
 
 #first find all the prime numbers up to 100
@@ -26,14 +27,17 @@ for(i in 1:length(possible.nums)){
 
 #find all the prime products up to 100 to compare with Blake's nums
 under.hundred.prime.prods <- c()
-for(i in 1:first.hundred.primes){
-  for(j in 1:first.hundred.primes){
+
+for(i in 1:length(first.hundred.primes)){
+  for(j in 1:length(first.hundred.primes)){
     product = first.hundred.primes[i] * first.hundred.primes[j]
-    if(i != j & product < 100){
-      under.hundred.prime.prods <- setdiff(c(prime.products, product), 
-                                           first.hundred.primes)
+    if(i != j){
+      if(product < 100){
+        under.hundred.prime.prods <- setdiff(c(under.hundred.prime.prods, product), 
+                                             first.hundred.primes)
       }
     }
+  }
 }
 
 setdiff(blakes.nums, under.hundred.prime.prods)
