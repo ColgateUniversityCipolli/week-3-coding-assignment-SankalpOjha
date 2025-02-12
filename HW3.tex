@@ -97,7 +97,9 @@ Blake made.\\
 to this \texttt{.Rnw} file.\\
 \textbf{Hint:} You may find the \verb|%in%| operator and the \verb|setdiff()| function to be helpful.\\
 
-\textbf{Solution:} 
+\textbf{Solution:} Blake mistakenly wrote \textbf{\underline{75}} in the list of numbers instead of the correct number, which is \textbf{\underline{74}}. To solve this problem, we first need to find all the prime number products so that we can find which prime product was not included in the list and also need to find the wrong number in Blake's list. To find all the prime products under 100, we first need to use a nested for loop to iterate through all the numbers under 100 and find all the prime numbers under 100. Once, we have all the prime numbers under 100, we use another nested for loop to iterate through all the prime numbers to find all the unique prime products. We also use an if statement to make sure we don't save any products greater than 100 and any squares of a prime. To figure out the wrong number in Blake's list and the correct number to replace it with, we use \texttt{setdiff()} to compare the two vectors we have: \texttt{under.hundred.prime.prods} and \texttt{blakes.nums}. We first compare whether the elements of \texttt{under.hundred.prime.prods} are in \texttt{blakes.nums}, which results in \textbf{\underline{75}} as the only number not in \texttt{under.hundred.prime.prods}. We flip the roles in the next \texttt{setdiff()}, checking for which elements of \texttt{blakes.nums} are not in \texttt{under.hundred.prime.prods}, which results in \textbf{\underline{74}}.
+
+
 % Write your answer and explanations here.
 
 \begin{knitrout}\scriptsize
